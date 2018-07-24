@@ -22,7 +22,7 @@ if (process.argv.length == 3 || process.argv.length == 4){
     if (process.argv.length == 3){
         switch (command) {
             case 'my-tweets' :
-                console.log("\nHere are some of your recent tweets: \n");
+                console.log("\nHere are some of your recent tweets: ");
                 var params = {screen_name: 'i_am_loaf_cat'};
                 twitter.get('statuses/user_timeline', params, function(error, tweets, response) {
                     if (!error) {
@@ -31,8 +31,8 @@ if (process.argv.length == 3 || process.argv.length == 4){
                             length = tweets.length;
                         }
                         for (var i = 0; i < length; i ++){
-                            console.log((i+1) + ". Tweet: " + tweets[i].text);
-                            console.log("Created at: " + tweets[i].created_at.substring(0, 19) + "\n");
+                            console.log("\n" + (i+1) + ". Tweet: " + tweets[i].text);
+                            console.log("Created at: " + tweets[i].created_at.substring(0, 19));
                         }
                     }
                 });
@@ -47,7 +47,23 @@ if (process.argv.length == 3 || process.argv.length == 4){
     else {
         switch (command) {
             case 'spotify-this-song' :
-                console.log("\nThis song is : " + process.argv[3]);
+                var songName = process.argv[3];
+                spotify.search({type: 'track', query: songName, limit: 1}, function(err, data) {
+                    if (!err) {
+                        var songValue = data.tracks.items[0];
+                        console.log("\nHere are the results from your song.\n");
+                        console.log("Artist(s) : ");
+                        for (var i = 0; i < songValue.artists.length; i++){
+                            console.log(songValue.artists[i].name);
+                        }
+                        console.log("\nSong Title :");
+                        console.log(songValue.name);
+                        console.log("\nPreview the Song Here :");
+                        console.log(songValue.preview_url);
+                        console.log("\nAlbum :");
+                        console.log(songValue.album.name);
+                    }
+                });
                 break;
             case 'movie-this' :
                 console.log("\nThis movie is : " + process.argv[3]);
