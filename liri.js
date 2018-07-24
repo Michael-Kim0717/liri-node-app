@@ -2,6 +2,7 @@
 require("dotenv").config();
 var spotifyAPI = require("node-spotify-api");
 var twitterAPI = require("twitter");
+var request = require("request");
 var keys = require("./keys");
 
 /* Access APIs and values */
@@ -37,8 +38,18 @@ if (process.argv.length == 3 || process.argv.length == 4){
                     }
                 });
                 break;
+            case 'spotify-this-song' :
+                console.log("\nSorry, you didn't really specify anything, but take a look at this song!\n");
+                spotify_this("I Want it That Way");
+                break;
             case 'do-what-it-says' :
                 console.log("\nDo What It Says :");
+                break;
+            case 'movie-this' :
+                var movieName = "Mr. Nobody";
+                var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+                console.log("\nOops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!\n");
+                movie_this(queryURL);
                 break;
             default :
                 console.log("\nThis doesn't make sense to me. \nPlease command me with 'my-tweets', 'spotify-this-song <SONGNAME>', 'movie-this <MOVIENAME>', or 'do-what-it-says'");
@@ -48,25 +59,14 @@ if (process.argv.length == 3 || process.argv.length == 4){
         switch (command) {
             case 'spotify-this-song' :
                 var songName = process.argv[3];
-                spotify.search({type: 'track', query: songName, limit: 1}, function(err, data) {
-                    if (!err) {
-                        var songValue = data.tracks.items[0];
-                        console.log("\nHere are the results from your song.\n");
-                        console.log("Artist(s) : ");
-                        for (var i = 0; i < songValue.artists.length; i++){
-                            console.log(songValue.artists[i].name);
-                        }
-                        console.log("\nSong Title :");
-                        console.log(songValue.name);
-                        console.log("\nPreview the Song Here :");
-                        console.log(songValue.preview_url);
-                        console.log("\nAlbum :");
-                        console.log(songValue.album.name);
-                    }
-                });
+                console.log("\nHere are the results from your song.\n");
+                spotify_this(songName);
                 break;
             case 'movie-this' :
-                console.log("\nThis movie is : " + process.argv[3]);
+                var movieName = process.argv[3];
+                var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+                console.log("\nHere are some details about your movie!\n")
+                movie_this(queryURL);
                 break;
             default :
                 console.log("\nSomething isn't right here. \nPlease command me with 'my-tweets', 'spotify-this-song <SONGNAME>', 'movie-this <MOVIENAME>', or 'do-what-it-says'");
@@ -75,4 +75,41 @@ if (process.argv.length == 3 || process.argv.length == 4){
 }
 else {
     console.log("I do not understand this many commands. Please make this easier for me!");
+}
+
+function spotify_this(song_name) {
+    spotify.search({type: 'track', query: song_name, limit: 1}, function(err, data) {
+        if (!err) {
+            var songValue = data.tracks.items[0];
+            console.log("Artist(s) : ");
+            for (var i = 0; i < songValue.artists.length; i++){
+                console.log(songValue.artists[i].name);
+            }
+            console.log("\nSong Title : \n" + songValue.name
+            + "\n\nPreview the Song Here : \n" + songValue.preview_url
+            + "\n\nAlbum : \n" + songValue.album.name);
+        }
+    });
+}
+
+function movie_this(queryURL) {
+    request(queryURL, function (error, response, body) {
+        if (!error){
+            var movieDetails = JSON.parse(body);
+            console.log("Movie Name : \n" + movieDetails.Title
+            + "\n\nYear : \n" + movieDetails.Year);
+            for (var i = 0; i < movieDetails.Ratings.length; i++){
+                if (movieDetails.Ratings[i].Source == "Internet Movie Database"){
+                    console.log("\nIMDB Rating : \n" + movieDetails.Ratings[i].Value);
+                }
+                else if (movieDetails.Ratings[i].Source == "Rotten Tomatoes"){
+                    console.log("\nRotten Tomatoes Rating : \n" + movieDetails.Ratings[i].Value);
+                }
+            }
+            console.log("\nCountry where the movie was produced :\n" + movieDetails.Country
+            + "\n\nLanguage of the Movie : \n" + movieDetails.Language
+            + "\n\nPlot : \n" + movieDetails.Plot
+            + "\n\nActors : \n" + movieDetails.Actors);
+        }
+    });
 }
