@@ -4,6 +4,7 @@ var spotifyAPI = require("node-spotify-api");
 var twitterAPI = require("twitter");
 var request = require("request");
 var keys = require("./keys");
+var fs = require("fs");
 
 /* Access APIs and values */
 var spotify = new spotifyAPI({
@@ -20,6 +21,7 @@ var twitter = new twitterAPI({
 /* Error Checking */
 if (process.argv.length == 3 || process.argv.length == 4){
     var command = process.argv[2];
+    /* Check if there are 3 arguments */
     if (process.argv.length == 3){
         switch (command) {
             case 'my-tweets' :
@@ -42,14 +44,66 @@ if (process.argv.length == 3 || process.argv.length == 4){
                 console.log("\nSorry, you didn't really specify anything, but take a look at this song!\n");
                 spotify_this("I Want it That Way");
                 break;
-            case 'do-what-it-says' :
-                console.log("\nDo What It Says :");
-                break;
             case 'movie-this' :
                 var movieName = "Mr. Nobody";
                 var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
                 console.log("\nOops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!\n");
                 movie_this(queryURL);
+                break;
+            case 'do-what-it-says' :
+                fs.readFile("random.txt", "utf8" ,(err, data) => {
+                    if (!err) {
+                        var lines = data.split("\n");
+                        var randomCommand = lines[Math.floor(Math.random() * lines.length)];
+                        console.log("\nWell, today I feel like doing the following command : '" + randomCommand + "'");
+                        if (randomCommand.indexOf(",") != -1) {
+                            var command = randomCommand.substring(0, randomCommand.indexOf(","));
+                            var argument = randomCommand.substring(randomCommand.indexOf(",") + 2, randomCommand.length-1);
+                            switch (command) {
+                                case 'spotify-this-song' :
+                                    console.log("\nHere are the results from your song.\n");
+                                    spotify_this(argument);
+                                    break;
+                                case 'movie-this' :
+                                    var queryURL = "https://www.omdbapi.com/?t=" + argument + "&y=&plot=short&apikey=trilogy";
+                                    console.log("\nHere are some details about your movie!\n")
+                                    movie_this(queryURL);
+                                    break;
+                            }
+                        }
+                        else {
+                            console.log("\nWell, today I feel like doing the following command : '" + data + "'");
+                            switch(data) {
+                                case 'my-tweets' :
+                                    console.log("\nHere are some of your recent tweets: ");
+                                    var params = {screen_name: 'i_am_loaf_cat'};
+                                    twitter.get('statuses/user_timeline', params, function(error, tweets, response) {
+                                        if (!error) {
+                                            var length = 20;
+                                            if (tweets.length < 20){
+                                                length = tweets.length;
+                                            }
+                                            for (var i = 0; i < length; i ++){
+                                                console.log("\n" + (i+1) + ". Tweet: " + tweets[i].text);
+                                                console.log("Created at: " + tweets[i].created_at.substring(0, 19));
+                                            }
+                                        }
+                                    });
+                                    break;
+                                case 'spotify-this-song' :
+                                    console.log("\nSorry, you didn't really specify anything, but take a look at this song!\n");
+                                    spotify_this("I Want it That Way");
+                                    break;
+                                case 'movie-this' :
+                                    var movieName = "Mr. Nobody";
+                                    var queryURL = "https://www.omdbapi.com/?t=" + movieName + "&y=&plot=short&apikey=trilogy";
+                                    console.log("\nOops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!\n");
+                                    movie_this(queryURL);
+                                    break;
+                            }
+                        }
+                    }
+                })
                 break;
             default :
                 console.log("\nThis doesn't make sense to me. \nPlease command me with 'my-tweets', 'spotify-this-song <SONGNAME>', 'movie-this <MOVIENAME>', or 'do-what-it-says'");
