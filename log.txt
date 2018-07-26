@@ -1,0 +1,206 @@
+abc performed: 26/7/2018 @ 12:9:15
+
+============================================================================
+This doesn't make sense to me. 
+Please command me with 'my-tweets', 'spotify-this-song <SONGNAME>, 'movie-this <MOVIENAME>', or 'do-what-it-says'
+============================================================================
+
+abc hi performed: 26/7/2018 @ 12:14:55
+
+============================================================================
+Something isn't right here. 
+Please command me with 'my-tweets', 'spotify-this-song <SONGNAME>, 'movie-this <MOVIENAME>', or 'do-what-it-says'
+============================================================================
+
+my-tweets performed: 26/7/2018 @ 18:44:55
+
+============================================================================
+Here are some of your recent tweets for user 'i_am_loaf_cat': 
+1. Tweet: Why do people think I am not a purebread cat?!
+Created at: Tue Jul 24 14:18:21
+Created at: Tue Jul 24 14:17:58
+
+2. Tweet: Just loafing around today!
+Created at: Tue Jul 24 14:14:14
+
+3. Tweet: Meow
+============================================================================
+
+my-tweets performed: 26/7/2018 @ 18:51:35
+
+============================================================================
+Here are some of your recent tweets for user 'i_am_loaf_cat': 
+1. Tweet: One day the owners will realize that I am the breadwinner.
+Created at: Thu Jul 26 22:51:28
+
+2. Tweet: Why do people think I am not a purebread cat?!
+
+3. Tweet: Just loafing around today!
+Created at: Tue Jul 24 14:18:21
+Created at: Tue Jul 24 14:17:58
+
+4. Tweet: Meow
+Created at: Tue Jul 24 14:14:14
+============================================================================
+
+spotify-this-song Eye of the Tiger performed: 26/7/2018 @ 18:55:44
+
+============================================================================
+Here are the results from your song.
+
+Artist(s) : 
+
+Song Title : 
+Eye of the Tiger
+
+Preview the Song Here : 
+https://p.scdn.co/mp3-preview/0305e216dd77b09c395724bd2c3506cd1047dad2?cid=94fc6d795a2149eeb7f195fa6be1a1ac
+
+Album : 
+Eye Of The TigerSurvivor
+
+============================================================================
+
+movie-this performed: 26/7/2018 @ 18:57:7
+
+============================================================================
+Oops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!
+
+Movie Name : 
+Mr. Nobody
+
+Year : 
+2009
+
+IMDB Rating : 
+7.9/10
+
+Rotten Tomatoes Rating : 
+66%
+
+Country where the movie was produced :
+Belgium, Germany, Canada, France, USA, UK
+
+Language of the Movie : 
+English, Mohawk
+
+Plot : 
+A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+
+Actors : 
+Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+============================================================================
+
+
+============================================================================
+my-tweets performed: 26/7/2018 @ 19:0:35
+Here are some of your recent tweets for user 'i_am_loaf_cat': 
+1. Tweet: One day the owners will realize that I am the breadwinner.
+Created at: Thu Jul 26 22:51:28
+
+2. Tweet: Why do people think I am not a purebread cat?!
+Created at: Tue Jul 24 14:18:21
+
+3. Tweet: Just loafing around today!
+Created at: Tue Jul 24 14:17:58
+
+4. Tweet: Meow
+Created at: Tue Jul 24 14:14:14
+============================================================================
+
+spotify-this-song Eye of the Tiger performed: 26/7/2018 @ 19:5:45
+
+============================================================================
+Here are the results from your song.
+
+Artist(s) : 
+
+Song Title : 
+Eye of the Tiger
+
+Preview the Song Here : 
+https://p.scdn.co/mp3-preview/0305e216dd77b09c395724bd2c3506cd1047dad2?cid=94fc6d795a2149eeb7f195fa6be1a1ac
+
+Album : 
+Eye Of The Tiger
+============================================================================
+
+Survivor
+spotify-this-song performed: 26/7/2018 @ 19:7:29
+
+============================================================================
+Sorry, you didn't really specify anything, but take a look at this song!
+
+Artist(s) : 
+Backstreet Boys
+
+Song Title : 
+I Want It That Way
+
+Preview the Song Here : 
+https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=94fc6d795a2149eeb7f195fa6be1a1ac
+
+Album : 
+The Hits--Chapter One
+============================================================================
+
+movie-this performed: 26/7/2018 @ 19:8:23
+
+============================================================================
+Oops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!
+
+Movie Name : 
+Mr. Nobody
+
+Year : 
+2009
+
+IMDB Rating : 
+7.9/10
+
+Rotten Tomatoes Rating : 
+66%
+
+Country where the movie was produced :
+Belgium, Germany, Canada, France, USA, UK
+
+Language of the Movie : 
+English, Mohawk
+
+Plot : 
+A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+
+Actors : 
+Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+============================================================================
+
+movie-this performed: 26/7/2018 @ 19:10:16
+
+============================================================================
+Oops, it looks like you didn't request anything. Check out this movie though, it's on Netflix!
+
+Movie Name : 
+Mr. Nobody
+
+Year : 
+2009
+
+IMDB Rating : 
+7.9/10
+
+Rotten Tomatoes Rating : 
+66%
+
+Country where the movie was produced :
+Belgium, Germany, Canada, France, USA, UK
+
+Language of the Movie : 
+English, Mohawk
+
+Plot : 
+A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
+
+Actors : 
+Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+============================================================================
+
